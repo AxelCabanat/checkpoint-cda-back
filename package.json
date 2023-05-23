@@ -1,0 +1,29 @@
+{
+  "name": "checkpoint-cda-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AxelCabanat/checkpoint-cda-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AxelCabanat/checkpoint-cda-back/issues"
+  },
+  "homepage": "https://github.com/AxelCabanat/checkpoint-cda-back#readme",
+  "dependencies": {
+    "typescript": "^5.0.4",
+    "@apollo/server": "^4.5.0",
+    "class-validator": "^0.14.0",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.1.4",
+    "ts-node-dev": "^2.0.0",
+    "type-graphql": "2.0.0-beta.1",
+    "typeorm": "^0.3.12"
+  }
+}
