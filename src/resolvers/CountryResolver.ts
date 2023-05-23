@@ -3,6 +3,7 @@ import {
   } from 'type-graphql';
   import Country from '../entities/Country';
   import { CountryInput } from '../utils/types/InputTypes';
+import db from '../db';
 
   
   @Resolver(Country)
@@ -13,14 +14,14 @@ import {
   
       @Query(() => [Country])
     async getAllCountries(): Promise<Country[]> {
-      return [{id : 1, code: "OK", name: "OK", emoji:"OK"}];
+      return await db.getRepository(Country).find({order: {id:'ASC'}});
     }
   
     @Query(() => Country)
       async getOneCountry(
           @Arg('id', () => Int) id: number,
-      ): Promise<Country> {
-        return {id : 1, code: "OK", name: "OK", emoji:"OK"};
+      ): Promise<Country | null> {
+        return await db.getRepository(Country).findOne({where: { id }, order: {id:'ASC'}});
       }
       /** ***********************************
        MUTATION
@@ -28,7 +29,7 @@ import {
   
       @Mutation(() => Country)
     async createCountry(@Arg('data') data: CountryInput): Promise<Country> {
-      return {id : 1, code: "OK", name: "OK", emoji:"OK"};
+      return await db.getRepository(Country).save(data);
     }
 
   }
